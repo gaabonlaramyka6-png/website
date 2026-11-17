@@ -1,0 +1,2043 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A professional portfolio showcasing four Information Technology students, their projects, skills, and achievements.">
+<title>FOURFOLD — Group Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+  --navy: #172b3a;
+  --navy-light: #294354;
+  --cream: #f6f4ef;
+  --white: #ffffff;
+  --gold: #b99a6b;
+  --gray: #77818a;
+  --line: #e4e2dc;
+  --muted: #a8afb3;
+  --shadow: 0 15px 45px rgba(23,43,58,.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+body.no-scroll { overflow: hidden; }
+
+a { color: inherit; text-decoration: none; }
+img { width: 100%; display: block; }
+button { font: inherit; }
+.container { width: 88%; max-width: 1240px; margin: auto; }
+
+section { padding: 110px 0; scroll-margin-top: 85px; }
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(35px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+
+.section-intro {
+  color: var(--gray);
+  max-width: 540px;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--navy);
+  color: white;
+  padding: 16px 25px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid var(--navy);
+  transition: .3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+}
+
+.btn-outline:hover { color: white; }
+
+/* NAVIGATION */
+
+/* NAVIGATION - MOVE UP */
+header {
+  position: fixed !important;
+  top: 0 !important;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.navbar {
+  height: 65px !important;
+  min-height: 65px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.brand span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--navy);
+  transition: .3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: none;
+  color: var(--navy);
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  background: var(--cream);
+  padding: 110px 0 90px !important;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  gap: 20px;
+}
+
+.hero-top .eyebrow { color: var(--gray); }
+
+.hero-number {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(65px, 11vw, 145px);
+  line-height: .95;
+  font-weight: 500;
+  letter-spacing: -5px;
+  margin-bottom: 25px;
+}
+
+.hero-title em {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.hero-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.hero-description p {
+  color: var(--gray);
+  font-size: 14px;
+  max-width: 470px;
+  line-height: 1.9;
+}
+
+
+/* HERO IMAGE - SHOW THE COMPLETE GROUP PHOTO */
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.hero-image img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center;
+  transform: none !important;
+}
+
+/* REMOVE ZOOM THAT CAN CROP THE IMAGE */
+.hero-image:hover img {
+  transform: none !important;
+}
+
+/* IMAGE TEXT LABEL */
+.hero-image::after {
+  content: "FOUR MINDS. ONE VISION.";
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  color: white;
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+
+/* HERO BOTTOM */
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  color: var(--gray);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+
+/* ABOUT */
+
+.about { background: white; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-image {
+  position: relative;
+}
+
+.about-image img {
+  height: 510px;
+  object-fit: cover;
+}
+
+.image-label {
+  position: absolute;
+  right: -25px;
+  bottom: 30px;
+  background: var(--navy);
+  color: white;
+  padding: 18px 25px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.about-text p {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 2;
+  margin: 20px 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.stat {
+  border-top: 1px solid var(--line);
+  padding-top: 17px;
+}
+
+.stat strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.stat span {
+  display: block;
+  color: var(--gray);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* TEAM — ONE FULL-SCREEN PROFILE PER MEMBER */
+
+.team-pages { background: var(--cream); padding: 0; }
+.team-intro { padding: 110px 0 55px; }
+
+.member-page {
+  min-height: calc(100vh - 82px);
+  padding: 65px 6%;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  scroll-margin-top: 82px;
+}
+.member-page:nth-of-type(even) { background: #eeece6; }
+
+.member-page-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 95px);
+}
+.member-page:nth-of-type(even) .member-photo { order: 2; }
+
+.member-photo {
+  height: min(68vh, 620px);
+  min-height: 390px;
+  overflow: hidden;
+  background: #deddd8;
+}
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(25%);
+  transition: transform .8s ease, filter .8s ease;
+}
+.member-page:hover .member-photo img {
+  transform: scale(1.035);
+  filter: grayscale(0%);
+}
+
+.member-details .member-number {
+  display: block;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.member-details h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 5vw, 65px);
+  line-height: 1.08;
+  font-weight: 500;
+  margin: 10px 0;
+}
+.member-details .member-role {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 15px 0 25px;
+}
+.member-details .member-bio {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 2;
+  max-width: 540px;
+  margin-bottom: 24px;
+}
+.member-subheading {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 22px 0 12px;
+}
+.member-skills { display: flex; flex-wrap: wrap; gap: 9px; }
+.member-skills span {
+  background: var(--navy);
+  border: 1px solid var(--line);
+  padding: 9px 13px;
+  color: var(--cream);
+  font-size: 10px;
+  letter-spacing: .7px;
+}
+.member-page:nth-of-type(even) .member-skills span { background: var(--navy);
+color: var(--cream);
+}
+
+.member-page-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  margin-top: 30px;
+  color: var(--gray);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* EXPERTISE */
+
+.expertise { background: white; }
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.expertise-card {
+  min-height: 220px;
+  padding: 30px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: .35s;
+}
+
+.expertise-card:hover {
+  background: var(--navy);
+  color: white;
+}
+
+.expertise-card i {
+  color: var(--gold);
+  font-size: 25px;
+  margin-bottom: 35px;
+}
+
+.expertise-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.expertise-card p {
+  color: var(--gray);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.expertise-card:hover p { color: #d2d8dc; }
+
+/* PROJECTS */
+
+.projects { background: var(--navy); color: white; }
+
+.projects .section-intro { color: #b7c0c6; }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 35px;
+}
+
+.project-card { margin-bottom: 35px; }
+
+.project-image {
+  overflow: hidden;
+  background: #344958;
+  height: 320px;
+}
+
+.project-card.large .project-image { height: 430px; }
+
+.project-image img {
+  height: 100%;
+  object-fit: cover;
+  transition: .7s;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0 10px;
+  color: var(--gold);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.project-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.project-card p {
+  color: #b7c0c6;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+/* CAPSTONE */
+
+.capstone { background: var(--cream); }
+
+.case-study {
+  background: white;
+  padding: 35px;
+}
+
+.case-image {
+  height: 450px;
+  overflow: hidden;
+  background: #e1e2df;
+}
+
+.case-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-content {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 65px;
+  padding: 45px 15px 20px;
+}
+
+.case-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 15px 0;
+}
+
+.case-content p {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 2;
+  margin: 15px 0;
+}
+
+.case-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.case-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.case-list i {
+  color: var(--gold);
+  margin-right: 10px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tech-tags span {
+  background: var(--cream);
+  padding: 9px 14px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* TIMELINE */
+
+.journey { background: white; }
+
+.timeline {
+  max-width: 850px;
+  margin: auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 5px;
+  bottom: 5px;
+  width: 1px;
+  background: var(--line);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 45px 65px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid white;
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.timeline-item small {
+  color: var(--gold);
+  letter-spacing: 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.timeline-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 8px 0;
+}
+
+.timeline-item p {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 620px;
+}
+
+/* GALLERY */
+
+.gallery { background: var(--cream); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 240px;
+  gap: 14px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: #deded9;
+}
+
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(5) {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(45%);
+  transition: .6s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+.gallery-item::after {
+  content: "VIEW IMAGE ↗";
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: .3s;
+  text-shadow: 0 1px 5px #000;
+}
+
+.gallery-item:hover::after { opacity: 1; }
+
+/* LIGHTBOX */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(9,20,29,.96);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+/* CONTACT */
+
+.contact {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+}
+
+.contact .section-intro {
+  color: #c0c8cd;
+  margin: auto;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 7vw, 85px);
+  line-height: 1.1;
+  margin: 25px 0;
+  font-weight: 500;
+}
+
+.contact-title em { color: var(--gold); }
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin: 45px 0;
+}
+
+.contact-info a, .contact-info span {
+  color: #d0d6da;
+  font-size: 12px;
+}
+
+.contact-info i {
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+.contact .btn {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.contact .btn:hover {
+  background: transparent;
+  color: white;
+}
+
+/* FOOTER */
+
+footer {
+  background: #10212d;
+  color: white;
+  padding: 35px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-content p {
+  color: #aeb8be;
+  font-size: 11px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: #dce0e2;
+  transition: .3s;
+}
+
+.footer-social a:hover { color: var(--gold); }
+
+/* SCROLL REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1050px) {
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: 9px; }
+  .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 760px) {
+  section { padding: 75px 0; }
+  .container { width: 90%; }
+
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 82px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 25px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active { display: flex; }
+
+  .nav-links a { font-size: 12px; }
+
+  .hero { padding-top: 125px; min-height: auto; }
+  .hero-title { letter-spacing: -2px; }
+  .hero-description { align-items: flex-start; flex-direction: column; }
+  .hero-image { height: 380px; }
+  .hero-bottom { font-size: 8px; }
+
+  .about-grid, .case-content { grid-template-columns: 1fr; gap: 40px; }
+  .about-image img { height: 380px; }
+  .image-label { right: -5px; }
+
+  .team-intro { padding: 85px 0 35px; }
+  .member-page { min-height: auto; padding: 55px 5%; }
+  .member-page-inner { grid-template-columns: 1fr; gap: 30px; }
+  .member-page:nth-of-type(even) .member-photo { order: 0; }
+  .member-photo { height: 420px; min-height: 0; }
+  .member-details h3 { font-size: 42px; }
+
+  .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+  .expertise-card { padding: 20px; min-height: 200px; }
+
+  .project-grid { grid-template-columns: 1fr; gap: 0; }
+  .project-card.large .project-image, .project-image { height: 280px; }
+
+  .case-study { padding: 15px; }
+  .case-image { height: 280px; }
+  .case-content { padding: 30px 8px; }
+  .case-content h3 { font-size: 29px; }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+  .gallery-item:nth-child(2), .gallery-item:nth-child(5) { grid-row: span 1; }
+
+  .contact-info { flex-direction: column; gap: 15px; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
+
+@media(max-width: 400px) {
+  .member-photo { height: 340px; }
+  .member-details h3 { font-size: 36px; }
+  .member-page-footer { flex-direction: column; }
+}
+
+/* FULL-WIDTH / FULL-SCREEN WEBSITE LAYOUT */
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+}
+
+/* REMOVE LEFT AND RIGHT SPACING */
+.container,
+.hero .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* MAKE HERO IMAGE FULL WIDTH */
+.hero-image {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.hero-image {
+  height: clamp(360px, 58vh, 720px);
+  min-height: 360px;
+}
+
+.about-grid,
+.expertise-grid,
+.project-grid,
+.case-study,
+.timeline,
+.gallery-grid {
+  width: 100%;
+}
+
+.member-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 70px 4%;
+}
+
+.member-page-inner {
+  max-width: 1600px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(45px, 7vw, 120px);
+}
+
+.member-photo {
+  height: min(72vh, 760px);
+  min-height: 420px;
+}
+
+.member-details {
+  max-width: 680px;
+}
+
+@media (min-width: 1600px) {
+  .container, .hero .container { width: 90%; }
+  .member-page { padding-left: 5%; padding-right: 5%; }
+}
+
+@media (max-width: 760px) {
+  .container, .hero .container { width: 90%; }
+  .hero { min-height: auto; padding-top: 125px; }
+  .hero-image { height: 55vh; min-height: 320px; }
+  .member-page { min-height: auto; padding: 60px 5%; }
+  .member-page-inner { grid-template-columns: 1fr; gap: 30px; }
+  .member-photo { height: min(65vh, 520px); min-height: 320px; }
+}
+
+/* =========================================
+   TRUE FULL-WIDTH WEBSITE LAYOUT
+   ========================================= */
+
+/* Remove default spacing and theme restrictions */
+html,
+body {
+  width: 100% !important;
+  min-height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Break out of WordPress content width */
+body,
+body > *,
+#page,
+.site,
+.site-content,
+.site-main,
+.wp-site-blocks,
+.entry-content,
+.wp-block-html,
+.wp-block-group,
+main,
+header,
+footer {
+  max-width: none !important;
+}
+
+/* Make main page areas span the entire browser width */
+main,
+header,
+footer {
+  width: 100vw !important;
+  max-width: none !important;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw !important;
+}
+
+/* Make content wider and use the available screen */
+.container {
+  width: 94% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* FIXED FULL-WIDTH LAYOUT */
+
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Remove WordPress side spacing */
+.wp-site-blocks,
+#page,
+.site,
+.site-content,
+.entry-content,
+.wp-block-html {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Full-width header, main and footer */
+header,
+main,
+footer {
+  position: relative;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Center content without limiting the page width */
+.container,
+.hero .container,
+.footer-content {
+  width: 92% !important;
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Sections */
+section {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Hero */
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Member profiles */
+.member-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.member-page-inner {
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .container,
+  .hero .container,
+  .footer-content {
+    width: 92% !important;
+  }
+
+  .member-page {
+    min-height: auto;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .member-page-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* About section */
+.about-grid {
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+}
+
+.about-image img {
+  width: 100%;
+  height: min(75vh, 700px);
+  object-fit: cover;
+}
+
+/* Team profiles */
+.member-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 70px 4%;
+}
+
+.member-page-inner {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+}
+
+.member-photo {
+  width: 100%;
+  height: min(75vh, 800px);
+  min-height: 450px;
+}
+
+.member-details {
+  width: 100%;
+  max-width: 750px;
+  
+}
+
+/* Other sections */
+.expertise-grid,
+.project-grid,
+.gallery-grid,
+.case-study {
+  width: 100%;
+  max-width: none;
+}
+
+.timeline {
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Capstone */
+.case-image {
+  width: 100%;
+  height: min(65vh, 700px);
+}
+
+/* Footer */
+.footer-content {
+  width: 94%;
+  margin: auto;
+}
+
+/* Large desktop screens */
+@media (min-width: 1400px) {
+  .container,
+  .hero .container {
+    width: 94% !important;
+  }
+
+  .member-page {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .expertise-card {
+    padding: 40px;
+  }
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  main,
+  header,
+  footer {
+    width: 100% !important;
+    left: auto;
+    margin-left: 0 !important;
+  }
+
+  .container,
+  .hero .container {
+    width: 92% !important;
+  }
+
+  .navbar {
+    width: 92%;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 125px;
+  }
+
+  .hero-image {
+    height: 55vh;
+    min-height: 320px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .member-page {
+    min-height: auto;
+    padding: 60px 4%;
+  }
+
+  .member-page-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .member-photo {
+    height: 55vh;
+    min-height: 320px;
+  }
+
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MINIMIZE TOP EMPTY SPACE IN WORDPRESS */
+
+/* Remove extra spacing from WordPress layout */
+html,
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.wp-site-blocks,
+#page,
+.site,
+.site-content,
+.site-main,
+.entry-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Hide the default WordPress theme header */
+.wp-site-blocks > header,
+#masthead,
+.site-header {
+  display: none !important;
+}
+
+
+/* MAKE ALL PORTFOLIO SECTIONS FULL WIDTH */
+html,
+body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+section,
+.hero,
+.about,
+.team,
+.expertise,
+.projects,
+.capstone,
+.journey,
+.gallery,
+.contact,
+footer {
+    width: 100vw !important;
+    max-width: none !important;
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* KEEP CONTENT PROPERLY CENTERED */
+section .container,
+.hero .container,
+footer .container {
+    width: calc(100% - 100px) !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* REMOVE EXTRA SPACE BETWEEN SECTIONS */
+section {
+    margin-bottom: 0 !important;
+}
+/* MOVE HOME BACKGROUND UP */
+.hero {
+    margin-top: -35px !important;
+    padding-top: 175px !important;
+    background: var(--cream) !important;
+    position: relative;
+    z-index: 1;
+}
+/* EXTEND HOME BACKGROUND UP TO NAVIGATION LINE */
+.hero {
+    box-shadow: 0 -40px 0 0 var(--cream) !important;
+}
+/* ACTUALLY MOVE ALL HOME CONTENT UP */
+.hero .container {
+    position: relative !important;
+    top: -100px !important;
+}
+
+.hero .container {
+    position: relative !important;
+    top: 0 !important;
+    transform: none !important;
+    margin-top: 0 !important;
+}
+
+</style>
+<!-- NAVIGATION -->
+<header>
+  <div class="container navbar">
+    <a class="brand" href="#home">FOUR<span>FOLD.</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#team">TEAM</a></li>
+      <li><a href="#expertise">EXPERTISE</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#capstone">CAPSTONE</a></li>
+      <li><a href="#journey">JOURNEY</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- 01 HOME -->
+<section class="hero" id="home">
+  <div class="container">
+
+    <div class="hero-top reveal">
+      <span class="eyebrow">A STUDENT CREATIVE PORTFOLIO</span>
+      <span class="hero-number">VOL. 01 / 2026</span>
+    </div>
+
+    <h1 class="hero-title reveal">
+      FOUR<br><em>FOLD.</em>
+    </h1>
+
+    <div class="hero-description reveal">
+      <p>
+        Four individuals. One vision. Endless possibilities.
+        We are Information Technology students passionate about
+        creativity, innovation, technology, and meaningful collaboration.
+      </p>
+
+      <a href="#about" class="btn">
+        EXPLORE OUR STORY <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="hero-image reveal">
+      <!-- Replace with your actual group photograph -->
+      <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/dddb7b08-d292-474d-8b1f-69009e6ae522.jpg" alt="Fourfold group portrait">
+    </div>
+
+    <div class="hero-bottom">
+      <span>BS INFORMATION TECHNOLOGY</span>
+      <span>OPOl COMMUNITY COLLEGE</span>
+      <span>SCROLL TO EXPLORE ↓</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 02 ABOUT -->
+<section class="about" id="about">
+  <div class="container about-grid">
+
+    <div class="about-image reveal">
+      <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/665c8aef-3608-48e1-85fa-21a3ab0ca562.jpg" alt="Our group">
+      <div class="image-label">EST. / OUR JOURNEY</div>
+    </div>
+
+    <div class="about-text reveal">
+      <span class="eyebrow">01 / WHO WE ARE</span>
+      <h2 class="section-heading">Different Minds.<br>Shared Purpose.</h2>
+
+      <p>
+        We are a group of four Bachelor of Science in Information
+        Technology students from Opol Community College. United by
+        our shared passion for learning and technology, we work
+        together to turn ideas into meaningful experiences.
+      </p>
+
+      <p>
+        Through academic activities, research, documentation,
+        collaboration, and system development, we continue to
+        strengthen our skills and prepare ourselves for the
+        opportunities ahead.
+      </p>
+
+      <p>
+        This portfolio represents our journey, creativity,
+        achievements, and growth as future IT professionals.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>04</strong>
+          <span>Team Members</span>
+        </div>
+        <div class="stat">
+          <strong>01</strong>
+          <span>Shared Vision</span>
+        </div>
+        <div class="stat">
+          <strong>IT</strong>
+          <span>Our Field</span>
+        </div>
+        <div class="stat">
+          <strong>∞</strong>
+          <span>Possibilities</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 TEAM — EACH MEMBER HAS A FULL-SCREEN PROFILE -->
+<section class="team-pages" id="team">
+  <div class="container team-intro reveal">
+    <span class="eyebrow">02 / THE PEOPLE</span>
+    <h2 class="section-heading">Meet the Team.</h2>
+    <p class="section-intro">
+      Get to know each member, their background, individual strengths,
+      interests, and the skills they bring to the team.
+    </p>
+    <span class="hero-number">01 — 04</span>
+  </div>
+
+  <!-- MEMBER 01 -->
+  <article class="member-page" id="member-one">
+    <div class="member-page-inner">
+      <div class="member-photo reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/31054bc9-a147-4463-8a74-39469925d3a5.jpg" alt="Portrait of team member one">
+      </div>
+      <div class="member-details reveal">
+        <span class="member-number">01 / TEAM MEMBER</span>
+        <h3>Keith Lorenz Bucad</h3>
+        <p class="member-role">Programmer</p>
+        <p class="member-bio">Write a short introduction about this member. Include their personality, educational background, interests, and what they enjoy contributing to the team.</p>
+        <h4 class="member-subheading">Skills &amp; Strengths</h4>
+        <div class="member-skills">
+          <span>Leadership</span><span>Communication</span><span>Teamwork</span><span>Problem Solving</span>
+        </div>
+        <h4 class="member-subheading">Interests</h4>
+        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <div class="member-page-footer">
+          <span>BS Information Technology</span><span>Opol Community College</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- MEMBER 02 -->
+  <article class="member-page" id="member-two">
+    <div class="member-page-inner">
+      <div class="member-photo reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/download-3.jpg" alt="Portrait of team member two">
+      </div>
+      <div class="member-details reveal">
+        <span class="member-number">02 / TEAM MEMBER</span>
+        <h3>Lara Myka P. Gaabon</h3>
+        <p class="member-role">Project Manager</p>
+        <p class="member-bio">Write a short introduction about this member. Describe their background, personality, role in group activities, and how they contribute to completing team projects.</p>
+        <h4 class="member-subheading">Skills &amp; Strengths</h4>
+        <div class="member-skills">
+          <span>Documentation</span><span>Research</span><span>Organization</span><span>Writing</span>
+        </div>
+        <h4 class="member-subheading">Interests</h4>
+        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <div class="member-page-footer">
+          <span>BS Information Technology</span><span>Opol Community College</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- MEMBER 03 -->
+  <article class="member-page" id="member-three">
+    <div class="member-page-inner">
+      <div class="member-photo reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/download-4.jpg" alt="Portrait of team member three">
+      </div>
+      <div class="member-details reveal">
+        <span class="member-number">03 / TEAM MEMBER</span>
+        <h3>Ryann Khenn Soleta</h3>
+        <p class="member-role">System Analys</p>
+        <p class="member-bio">Write a short introduction about this member. Share their creative interests, personal strengths, and the tasks or ideas they usually contribute to the group.</p>
+        <h4 class="member-subheading">Skills &amp; Strengths</h4>
+        <div class="member-skills">
+          <span>Creative Design</span><span>Canva</span><span>Visual Presentation</span><span>Attention to Detail</span>
+        </div>
+        <h4 class="member-subheading">Interests</h4>
+        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <div class="member-page-footer">
+          <span>BS Information Technology</span><span>Opol Community College</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- MEMBER 04 -->
+  <article class="member-page" id="member-four">
+    <div class="member-page-inner">
+      <div class="member-photo reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/anjjj.jpg" alt="Portrait of team member four">
+      </div>
+      <div class="member-details reveal">
+        <span class="member-number">04 / TEAM MEMBER</span>
+        <h3>Angelica O. Dalomino </h3>
+        <p class="member-role">Technical Writer</p>
+        <p class="member-bio">Write a short introduction about this member. Describe their technical interests, skills they are developing, and their contributions to the group's academic and technical projects.</p>
+        <h4 class="member-subheading">Skills &amp; Strengths</h4>
+        <div class="member-skills">
+          <span>Streamer</span><span>Programming</span><span>Technical Skills</span><span>Teamwork</span>
+        </div>
+        <h4 class="member-subheading">Interests</h4>
+        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <div class="member-page-footer">
+          <span>BS Information Technology</span><span>Opol Community College</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- 04 EXPERTISE -->
+<section class="expertise" id="expertise">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">03 / WHAT WE DO</span>
+      <h2 class="section-heading">Our Expertise.</h2>
+      <p class="section-intro">
+        A combination of technical knowledge, creative thinking,
+        and collaborative skills developed throughout our studies.
+      </p>
+    </div>
+
+    <div class="expertise-grid">
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Building and structuring responsive websites and web applications.</p>
+      </article>
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Programming</h3>
+        <p>Learning programming logic and developing technical solutions.</p>
+      </article>
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-pen-ruler"></i>
+        <h3>UI / UX Design</h3>
+        <p>Creating organized, user-friendly, and visually appealing interfaces.</p>
+      </article>
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Graphic Design</h3>
+        <p>Developing visual materials, layouts, and creative presentations.</p>
+      </article>
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-database"></i>
+        <h3>Database Management</h3>
+        <p>Organizing, storing, and managing structured information.</p>
+      </article>
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-file-lines"></i>
+        <h3>Documentation</h3>
+        <p>Preparing project records, reports, and academic documentation.</p>
+      </article>
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        <h3>Research</h3>
+        <p>Gathering information, analyzing requirements, and evaluating solutions.</p>
+      </article>
+
+      <article class="expertise-card reveal">
+        <i class="fa-solid fa-people-group"></i>
+        <h3>Collaboration</h3>
+        <p>Communicating ideas, sharing responsibilities, and working as one.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 05 PROJECTS -->
+<section class="projects" id="projects">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">04 / SELECTED WORKS</span>
+      <h2 class="section-heading">Projects &amp; Achievements.</h2>
+      <p class="section-intro">
+        A selection of our academic projects, creative works,
+        and experiences throughout our journey.
+      </p>
+    </div>
+
+    <div class="project-grid">
+
+      <article class="project-card large reveal">
+        <div class="project-image">
+          <img src="images/project1.jpg" alt="Academic project one">
+        </div>
+        <div class="project-meta">
+          <span>01 / FEATURED WORK</span>
+          <span>ACADEMIC PROJECT</span>
+        </div>
+        <h3>Academic Project One</h3>
+        <p>
+          Add a description of your completed academic project,
+          its purpose, and the skills you developed.
+        </p>
+      </article>
+
+      <div>
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img src="images/project2.jpg" alt="Research project">
+          </div>
+          <div class="project-meta">
+            <span>02 / RESEARCH</span>
+            <span>DOCUMENTATION</span>
+          </div>
+          <h3>Research &amp; Documentation</h3>
+          <p>Showcase your research, reports, and academic documentation.</p>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img src="images/project3.jpg" alt="Creative project">
+          </div>
+          <div class="project-meta">
+            <span>03 / CREATIVE WORK</span>
+            <span>DESIGN</span>
+          </div>
+          <h3>Creative Presentations</h3>
+          <p>Display your visual presentations, designs, and creative output.</p>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 06 CAPSTONE -->
+<section class="capstone" id="capstone">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">05 / FEATURED CASE STUDY</span>
+      <h2 class="section-heading">Our Capstone Project.</h2>
+      <p class="section-intro">
+        Technology developed with purpose, collaboration,
+        and a commitment to creating practical solutions.
+      </p>
+    </div>
+
+    <div class="case-study reveal">
+
+      <div class="case-image">
+        <img src="images/capstone.jpg" alt="NSTP Integrated Management System">
+      </div>
+
+      <div class="case-content">
+
+        <div>
+          <span class="eyebrow">OPOL COMMUNITY COLLEGE</span>
+          <h3>NSTP Integrated Management System</h3>
+
+          <p>
+            The NSTP Integrated Management System for Opol Community
+            College is a web and mobile-based solution developed
+            to digitize and organize NSTP Office operations.
+          </p>
+
+          <p>
+            It addresses manual recordkeeping and administrative
+            processes by providing a centralized platform for
+            student information, documents, activities, attendance,
+            training hours, and certificates.
+          </p>
+
+          <div class="tech-tags">
+            <span>LARAVEL</span>
+            <span>REACT NATIVE EXPO</span>
+            <span>PHP</span>
+            <span>MYSQL</span>
+            <span>JAVASCRIPT</span>
+          </div>
+        </div>
+
+        <div>
+          <h3>System Highlights</h3>
+
+          <ul class="case-list">
+            <li><i class="fa-solid fa-check"></i> Student Record Management</li>
+            <li><i class="fa-solid fa-check"></i> Document Submission and Tracking</li>
+            <li><i class="fa-solid fa-check"></i> OCR-Assisted Document Processing</li>
+            <li><i class="fa-solid fa-check"></i> Attendance Monitoring</li>
+            <li><i class="fa-solid fa-check"></i> Training Hours and Eligibility Monitoring</li>
+            <li><i class="fa-solid fa-check"></i> Activity and Schedule Management</li>
+            <li><i class="fa-solid fa-check"></i> Certificate Generation</li>
+            <li><i class="fa-solid fa-check"></i> Announcements and Notifications</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:35px;">
+      <a href="#gallery" class="btn btn-outline">
+        EXPLORE PROJECT MEMORIES <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+<!-- 07 JOURNEY -->
+<section class="journey" id="journey">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">06 / OUR PROGRESS</span>
+      <h2 class="section-heading">The Journey.</h2>
+      <p class="section-intro">
+        Every milestone represents learning, challenges,
+        teamwork, and progress.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <article class="timeline-item reveal">
+        <small>01 / PLANNING</small>
+        <h3>Project Planning &amp; Conceptualization</h3>
+        <p>We began by identifying the project concept, discussing ideas, and establishing our goals.</p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <small>02 / RESEARCH</small>
+        <h3>Research &amp; Documentation</h3>
+        <p>We gathered requirements, conducted research, and prepared the necessary project documentation.</p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <small>03 / DEVELOPMENT</small>
+        <h3>System Development</h3>
+        <p>We worked on the web and mobile applications, system interfaces, and core functionalities.</p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <small>04 / DEFENSE</small>
+        <h3>Capstone 1 Defense</h3>
+        <p>We presented our research, project concept, system design, and proposed solution.</p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <small>05 / TESTING</small>
+        <h3>Capstone 2 Development &amp; Testing</h3>
+        <p>We completed system development and conducted testing to evaluate its functionality and usability.</p>
+      </article>
+
+      <article class="timeline-item reveal">
+        <small>06 / ACHIEVEMENT</small>
+        <h3>Growth &amp; Accomplishments</h3>
+        <p>Each experience strengthened our technical abilities, teamwork, confidence, and knowledge.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 08 GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+
+    <div class="section-header reveal">
+      <span class="eyebrow">07 / THE MEMORIES</span>
+      <h2 class="section-heading">Captured Moments.</h2>
+      <p class="section-intro">
+        Behind every achievement are moments of hard work,
+        laughter, collaboration, and unforgettable memories.
+        Click a photograph to view it.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/hhaha.jpg" alt="Group activity one">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/665c8aef-3608-48e1-85fa-21a3ab0ca562.jpg" alt="Group activity two">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="images/gallery3.jpg" alt="Group activity three">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/665c8aef-3608-48e1-85fa-21a3ab0ca562.jpg" alt="Group activity four">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/hhaha.jpg" alt="Group activity five">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="images/gallery6.jpg" alt="Group activity six">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 09 CONTACT -->
+<section class="contact" id="contact">
+  <div class="container reveal">
+
+    <span class="eyebrow">08 / LET'S CONNECT</span>
+
+    <h2 class="contact-title">
+      Every Story<br>Starts with a <em>Connection.</em>
+    </h2>
+
+    <p class="section-intro">
+      Thank you for taking the time to explore our portfolio.
+      We welcome opportunities to connect, collaborate, and learn.
+    </p>
+
+    <div class="contact-info">
+      <a href="mailto:yourgroup@email.com">
+        <i class="fa-regular fa-envelope"></i> yourgroup@email.com
+      </a>
+
+      <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-facebook-f"></i> Facebook
+      </a>
+
+      <span>
+        <i class="fa-solid fa-location-dot"></i> Opol Community College
+      </span>
+    </div>
+
+    <a href="mailto:yourgroup@email.com" class="btn">
+      CONTACT OUR GROUP <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-content">
+    <a href="#home" class="brand">FOUR<span>FOLD.</span></a>
+
+    <p>© 2026 FOURFOLD. All rights reserved.</p>
+
+    <div class="footer-social">
+      <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="mailto:yourgroup@email.com" aria-label="Email">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+      <a href="#home" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- PHOTO LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+  <img src="" alt="Expanded gallery photograph" id="lightboxImage">
+</div>
+
+<script>
+// MOBILE NAVIGATION
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const menuIcon = menuToggle.querySelector("i");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("active");
+  menuIcon.className = isOpen
+    ? "fa-solid fa-xmark"
+    : "fa-solid fa-bars";
+  menuToggle.setAttribute("aria-expanded", isOpen);
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuIcon.className = "fa-solid fa-bars";
+    menuToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+// SCROLL REVEAL ANIMATION
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+// GALLERY LIGHTBOX
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+    lightbox.classList.add("active");
+    document.body.classList.add("no-scroll");
+    lightboxClose.focus();
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.classList.remove("no-scroll");
+  lightboxImage.src = "";
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", event => {
+  if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeLightbox();
+});
+</script>       

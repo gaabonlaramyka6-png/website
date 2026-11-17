@@ -1,0 +1,73 @@
+/* DARK NAVY ABOUT PAGE */
+.about {
+  background: #172b3a !important;
+  color: #ffffff !important;
+}
+
+.about-text .section-heading {
+  color: #ffffff !important;
+}
+
+.about-text p {
+  color: #d0d6da !important;
+}
+
+.about .eyebrow {
+  color: #b99a6b !important;
+}
+
+/* ABOUT STATISTICS */
+.about .stat {
+  border-top: 1px solid rgba(255,255,255,.2) !important;
+}
+
+.about .stat strong {
+  color: #ffffff !important;
+}
+
+.about .stat span {
+  color: #b7c0c6 !important;
+}
+
+/* IMAGE LABEL */
+.about .image-label {
+  background: #b99a6b !important;
+  color: #172b3a !important;
+  font-weight: 700;
+}
+
+/* REMOVE WORDPRESS DEFAULT HEADER */
+.wp-site-blocks > header:first-child,
+.wp-site-blocks > .wp-block-template-part:first-child {
+    display: none !important;
+}
+
+/* REMOVE DEFAULT WORDPRESS HEADER */
+header.wp-block-template-part,
+.wp-block-site-title,
+.wp-block-post-title,
+.entry-header {
+    display: none !important;
+}
+/* MINIMIZE NAVIGATION WHITE SPACE */
+.navbar {
+    height: 70px !important;
+    min-height: 70px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.navbar .container,
+.navbar .nav-container {
+    height: 70px !important;
+    min-height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* REDUCE SPACE BEFORE HOME SECTION */
+.hero {
+    margin-top: 0 !important;
+    padding-top: 90px !important;
+}
