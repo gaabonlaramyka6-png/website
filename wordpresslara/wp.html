@@ -353,22 +353,40 @@ header {
 }
 .member-page:nth-of-type(even) .member-photo { order: 2; }
 
+
+/* MEMBER PHOTO HOVER EFFECT */
+
 .member-photo {
   height: min(68vh, 620px);
   min-height: 390px;
   overflow: hidden;
   background: #deddd8;
+  position: relative;
+  border: 2px solid transparent;
+  transition: border .4s ease, box-shadow .4s ease;
 }
+
 .member-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: grayscale(25%);
-  transition: transform .8s ease, filter .8s ease;
+  transition: transform .7s ease, filter .7s ease;
 }
-.member-page:hover .member-photo img {
-  transform: scale(1.035);
-  filter: grayscale(0%);
+
+/* GOLD GLOW WHEN HOVERING DIRECTLY ON THE PHOTO */
+
+.member-photo:hover {
+  border-color: var(--gold);
+  box-shadow:
+    0 0 10px rgba(185,154,107,.45),
+    0 0 25px rgba(185,154,107,.35),
+    0 0 45px rgba(185,154,107,.20);
+}
+
+.member-photo:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(1.04);
 }
 
 .member-details .member-number {
@@ -445,39 +463,116 @@ color: var(--cream);
   border-left: 1px solid var(--line);
 }
 
+
+/* EXPERTISE - PREMIUM HOVER TRANSITION */
+
 .expertise-card {
   min-height: 220px;
   padding: 30px;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  transition: .35s;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  background: white;
+  transition:
+    background .5s ease,
+    transform .5s cubic-bezier(.2,.8,.2,1),
+    box-shadow .5s ease,
+    border-color .5s ease;
 }
 
+/* GOLD ACCENT LINE */
+.expertise-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gold);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s ease;
+}
+
+/* CARD HOVER */
 .expertise-card:hover {
   background: var(--navy);
   color: white;
+
+  transform: translateY(-10px);
+  box-shadow: 0 18px 35px rgba(23,43,58,.18);
+  border-color: var(--gold);
+  z-index: 2;
 }
 
+.expertise-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ICON ANIMATION */
 .expertise-card i {
+  display: inline-block;
   color: var(--gold);
   font-size: 25px;
   margin-bottom: 35px;
+
+  transition:
+    transform .5s ease,
+    color .4s ease;
 }
 
+.expertise-card:hover i {
+  transform: translateY(-5px) scale(1.2) rotate(-8deg);
+  color: #d9b77f;
+}
+
+/* TITLE ANIMATION */
 .expertise-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 21px;
   font-weight: 500;
   margin-bottom: 10px;
+
+  transition: transform .4s ease, color .4s ease;
 }
 
+.expertise-card:hover h3 {
+  transform: translateX(5px);
+  color: white;
+}
+
+/* DESCRIPTION ANIMATION */
 .expertise-card p {
   color: var(--gray);
   font-size: 12px;
   line-height: 1.8;
+
+  transition:
+    color .4s ease,
+    transform .4s ease;
 }
 
-.expertise-card:hover p { color: #d2d8dc; }
+.expertise-card:hover p {
+  color: #d2d8dc;
+  transform: translateX(5px);
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  .expertise-card,
+  .expertise-card::before,
+  .expertise-card i,
+  .expertise-card h3,
+  .expertise-card p {
+    transition: none;
+  }
+}
+
 
 /* PROJECTS */
 
@@ -1381,11 +1476,277 @@ section {
     margin-top: 0 !important;
 }
 
+/* INTERACTIVE SKILLS & STRENGTHS */
+
+.skills-reveal {
+  margin-top: 25px;
+  max-width: 520px;
+}
+
+/* CLICKABLE PREVIEW BOX */
+
+.skills-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.skills-preview:hover,
+.skills-preview:focus {
+  background: var(--navy);
+  color: white;
+  outline: none;
+}
+
+.skills-preview h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.skills-preview span {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* VIEW SKILLS BUTTON */
+
+.skills-view-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 15px 18px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s ease;
+  animation: skillsAppear .35s ease;
+}
+
+.skills-view-btn:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.skills-view-btn i {
+  margin-right: 8px;
+}
+
+/* HIDDEN SKILLS PANEL */
+
+.skills-panel {
+  padding-top: 18px;
+  animation: skillsAppear .4s ease;
+}
+
+.skills-panel .member-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.skills-panel[hidden],
+.skills-view-btn[hidden] {
+  display: none !important;
+}
+
+/* ANIMATION */
+
+@keyframes skillsAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+  .skills-preview {
+    padding: 17px;
+  }
+
+  .skills-preview h4 {
+    font-size: 17px;
+  }
+
+  .skills-preview span {
+    font-size: 8px;
+  }
+
+  .skills-view-btn {
+    font-size: 9px;
+    padding: 14px 10px;
+  }
+}
+/* SKILLS IMAGE GALLERY */
+
+.skills-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skills-image-gallery img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.skills-image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+    .skills-image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-image-gallery img {
+        height: 120px;
+    }
+}
+/* =================================
+   INTERACTIVE FOURFOLD GROUP PHOTO
+   ================================= */
+
+.about-image {
+    position: relative;
+    overflow: visible;
+}
+
+/* Clickable areas for each member */
+.about-person-hotspots {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    z-index: 3;
+}
+
+.person-hotspot {
+    position: relative;
+    min-width: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity .35s ease,
+                transform .4s ease,
+                filter .4s ease,
+                box-shadow .4s ease;
+}
+
+/* Show the four image sections when one is selected */
+.about-image.has-selection > img {
+    filter: brightness(.45);
+    transition: filter .4s ease;
+}
+
+.about-image.has-selection .person-hotspot {
+    opacity: .45;
+    border: 1px solid rgba(185,154,107,.35);
+}
+
+/* Selected member */
+.about-image.has-selection .person-hotspot.active {
+    opacity: 1;
+    z-index: 5;
+    transform: scale(1.08);
+    filter: brightness(1.12) saturate(1.15);
+    border: 2px solid var(--gold);
+    box-shadow:
+        0 0 15px rgba(185,154,107,.8),
+        0 0 35px rgba(185,154,107,.5),
+        inset 0 0 25px rgba(185,154,107,.25);
+}
+
+/* Member name */
+.person-hotspot span {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--gold);
+    color: white;
+    padding: 8px 13px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.person-hotspot.active span {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Keep the image label above the clickable areas */
+.image-label {
+    z-index: 6;
+    pointer-events: none;
+}
+
+/* Mobile adjustment */
+@media (max-width: 760px) {
+    .person-hotspot span {
+        font-size: 8px;
+        padding: 6px 8px;
+        bottom: 10px;
+    }
+}
+
+/* PROJECT VIDEO HOVER EFFECT */
+
+.project-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform .5s ease;
+}
+
+.project-card:hover .project-image video {
+    transform: scale(1.04);
+}
+
+
 </style>
 <!-- NAVIGATION -->
 <header>
   <div class="container navbar">
-    <a class="brand" href="#home">FOUR<span>FOLD.</span></a>
+    <a class="brand" href="#home">FINAL<span>SYNC.</span></a>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
       <i class="fa-solid fa-bars"></i>
@@ -1417,7 +1778,7 @@ section {
     </div>
 
     <h1 class="hero-title reveal">
-      FOUR<br><em>FOLD.</em>
+      FINAL<br><em>SYNC.</em>
     </h1>
 
     <div class="hero-description reveal">
@@ -1434,7 +1795,7 @@ section {
 
     <div class="hero-image reveal">
       <!-- Replace with your actual group photograph -->
-      <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/dddb7b08-d292-474d-8b1f-69009e6ae522.jpg" alt="Fourfold group portrait">
+      
     </div>
 
     <div class="hero-bottom">
@@ -1451,9 +1812,28 @@ section {
   <div class="container about-grid">
 
     <div class="about-image reveal">
-      <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/665c8aef-3608-48e1-85fa-21a3ab0ca562.jpg" alt="Our group">
-      <div class="image-label">EST. / OUR JOURNEY</div>
-    </div>
+  <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/e08127f9-2f2a-4e70-b4b9-692f5bb0151f.jpg" alt="Our group" id="aboutGroupPhoto">
+
+  <div class="about-person-hotspots">
+    <button class="person-hotspot" data-person="0" aria-label="Select Ryann" aria-pressed="false">
+      <span>Ryann</span>
+    </button>
+
+    <button class="person-hotspot" data-person="1" aria-label="Select Angelica" aria-pressed="false">
+      <span>Angelica</span>
+    </button>
+
+    <button class="person-hotspot" data-person="2" aria-label="Select Keith" aria-pressed="false">
+      <span>Keith</span>
+    </button>
+
+    <button class="person-hotspot" data-person="3" aria-label="Select Lara" aria-pressed="false">
+      <span>Lara</span>
+    </button>
+  </div>
+
+  <div class="image-label">EST. / Click Photo</div>
+</div>
 
     <div class="about-text reveal">
       <span class="eyebrow">01 / WHO WE ARE</span>
@@ -1523,13 +1903,29 @@ section {
         <span class="member-number">01 / TEAM MEMBER</span>
         <h3>Keith Lorenz Bucad</h3>
         <p class="member-role">Programmer</p>
-        <p class="member-bio">Write a short introduction about this member. Include their personality, educational background, interests, and what they enjoy contributing to the team.</p>
-        <h4 class="member-subheading">Skills &amp; Strengths</h4>
-        <div class="member-skills">
-          <span>Leadership</span><span>Communication</span><span>Teamwork</span><span>Problem Solving</span>
-        </div>
+        <p class="member-bio">Keith is a 4th-year Information Technology student who lives in Bulua. He is the second among his siblings and is known for being curious and eager to learn new things.</p>
+        <div class="skills-reveal">
+  <div class="skills-preview" role="button" tabindex="0" aria-expanded="false">
+    <h4>Skills &amp; Strengths</h4>
+    <span>✦ Tap to discover</span>
+  </div>
+
+  <button class="skills-view-btn" type="button" hidden="">
+    <i class="fa-solid fa-arrow-pointer"></i>
+    Click Here to View Skills &amp; Hobbies
+  </button>
+
+  <div class="skills-panel" hidden="">
+    <div class="skills-image-gallery">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/632b80cca4fbc8ba249392ee473236ea.jpg" alt="Skill Image 1">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/1392dd47bbfc362174dbe635a385c184.jpg" alt="Skill Image 2">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/471ac52aa34ae9e88c27082a2a351bac.jpg" alt="Skill Image 3">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/286b18e2d80b42abe26f019348db004a.jpg" alt="Skill Image 4">
+    </div>
+</div>
+</div>
         <h4 class="member-subheading">Interests</h4>
-        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <p class="member-bio">Keith has a strong interest in programming and enjoys exploring different technologies. In his free time, he loves playing online games and basketball. He enjoys both activities because they allow him to have fun, challenge himself, and develop his skills.</p>
         <div class="member-page-footer">
           <span>BS Information Technology</span><span>Opol Community College</span>
         </div>
@@ -1547,13 +1943,29 @@ section {
         <span class="member-number">02 / TEAM MEMBER</span>
         <h3>Lara Myka P. Gaabon</h3>
         <p class="member-role">Project Manager</p>
-        <p class="member-bio">Write a short introduction about this member. Describe their background, personality, role in group activities, and how they contribute to completing team projects.</p>
-        <h4 class="member-subheading">Skills &amp; Strengths</h4>
-        <div class="member-skills">
-          <span>Documentation</span><span>Research</span><span>Organization</span><span>Writing</span>
-        </div>
+        <p class="member-bio">Lara is a 4th Year Information Technology student who lives in Igpit, Opol, Misamis Oriental. She is the youngest among her siblings and is an independent woman who values responsibility and personal growth. She is also a member of the Church of Christ and actively participates in the church choir, where she enjoys expressing herself through music.</p>
+       <div class="skills-reveal">
+  <div class="skills-preview" role="button" tabindex="0" aria-expanded="false">
+    <h4>Skills &amp; Strengths</h4>
+    <span>✦ Tap to discover</span>
+  </div>
+
+  <button class="skills-view-btn" type="button" hidden="">
+    <i class="fa-solid fa-arrow-pointer"></i>
+    Click Here to View Skills &amp; Hobbies
+  </button>
+
+ <div class="skills-panel" hidden="">
+    <div class="skills-image-gallery">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/2f9e83ec-f99d-4ffa-b636-5918bb2ce573.jpg" alt="Skill Image 1">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/3227d6b1-afb4-4697-a9b9-3bbe55030494.jpg" alt="Skill Image 2">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/d2345145-f6a7-476c-9fd6-63a75350145f-1.jpg" alt="Skill Image 3">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/895d309a-2e33-4a5e-b3a6-a05b9ca22eeb.jpg" alt="Skill Image 4">
+    </div>
+</div>
+</div>
         <h4 class="member-subheading">Interests</h4>
-        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <p class="member-bio">Lara has strong skills and interests in architecture. She loves designing and creating ideas, especially when it comes to houses and structures. Aside from her passion for design, she also enjoys playing the piano, which allows her to express her creativity through music.</p>
         <div class="member-page-footer">
           <span>BS Information Technology</span><span>Opol Community College</span>
         </div>
@@ -1571,13 +1983,29 @@ section {
         <span class="member-number">03 / TEAM MEMBER</span>
         <h3>Ryann Khenn Soleta</h3>
         <p class="member-role">System Analys</p>
-        <p class="member-bio">Write a short introduction about this member. Share their creative interests, personal strengths, and the tasks or ideas they usually contribute to the group.</p>
-        <h4 class="member-subheading">Skills &amp; Strengths</h4>
-        <div class="member-skills">
-          <span>Creative Design</span><span>Canva</span><span>Visual Presentation</span><span>Attention to Detail</span>
-        </div>
+        <p class="member-bio">Ryan is a 4th Year Information Technology student who currently lives in Iponan, Misamis Oriental. He is the oldest among his siblings and is a hardworking and responsible person who balances his studies with work to support his education. He is also smart, curious, and loves exploring new things and gaining new experiences. As a team member, he contributes his ideas, knowledge, and dedication while encouraging everyone to keep learning and working together.</p>
+       <div class="skills-reveal">
+  <div class="skills-preview" role="button" tabindex="0" aria-expanded="false">
+    <h4>Skills &amp; Hobbies</h4>
+    <span>✦ Tap to discover</span>
+  </div>
+
+  <button class="skills-view-btn" type="button" hidden="">
+    <i class="fa-solid fa-arrow-pointer"></i>
+    Click Here to View Skills &amp; Strengths
+  </button>
+
+  <div class="skills-panel" hidden="">
+    <div class="skills-image-gallery">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/471ac52aa34ae9e88c27082a2a351bac.jpg" alt="Skill Image 1">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/267b469218e74413b99896dbd1ea2b2f.jpg" alt="Skill Image 2">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/c096326d0d756d077b6d3eb34bf06702.jpg" alt="Skill Image 3">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/0d635d9dda30fccd5a1d11fac5d0cf41.jpg" alt="Skill Image 4">
+    </div>
+</div>
+</div>
         <h4 class="member-subheading">Interests</h4>
-        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <p class="member-bio">Ryan is a smart and curious person who loves exploring and discovering new things. He enjoys learning, gaining new experiences, and challenging himself to understand how things work. His curiosity motivates him to keep learning and growing.</p>
         <div class="member-page-footer">
           <span>BS Information Technology</span><span>Opol Community College</span>
         </div>
@@ -1595,13 +2023,29 @@ section {
         <span class="member-number">04 / TEAM MEMBER</span>
         <h3>Angelica O. Dalomino </h3>
         <p class="member-role">Technical Writer</p>
-        <p class="member-bio">Write a short introduction about this member. Describe their technical interests, skills they are developing, and their contributions to the group's academic and technical projects.</p>
-        <h4 class="member-subheading">Skills &amp; Strengths</h4>
-        <div class="member-skills">
-          <span>Streamer</span><span>Programming</span><span>Technical Skills</span><span>Teamwork</span>
-        </div>
+        <p class="member-bio">Angelica is a 4th-year Information Technology student who is hardworking, independent, and determined to achieve her goals. She enjoys doing livestreams, which not only allow her to express herself and connect with other people but also help her earn money to support herself and her studies.</p>
+        <p></p><div class="skills-reveal">
+  <div class="skills-preview" role="button" tabindex="0" aria-expanded="false">
+    <h4>Skills &amp; Hobbies</h4>
+    <span>✦ Tap to discover</span>
+  </div>
+
+  <button class="skills-view-btn" type="button" hidden="">
+    <i class="fa-solid fa-arrow-pointer"></i>
+    Click Here to View Skills &amp; Strengths
+  </button>
+
+  <div class="skills-panel" hidden="">
+    <div class="skills-image-gallery">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/471ac52aa34ae9e88c27082a2a351bac.jpg" alt="Skill Image 1">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/d9fbb638d34346440e374c974ec6cce5.jpg" alt="Skill Image 2">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/b732dc99cd58834cd5057ffce8f5106a.jpg" alt="Skill Image 3">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/7812da7621deca92403d9b716cebbab1.jpg" alt="Skill Image 4">
+    </div>
+</div>
+</div>
         <h4 class="member-subheading">Interests</h4>
-        <p class="member-bio">Add this member's hobbies, passions, or areas of interest.</p>
+        <p class="member-bio">Angelica is a passionate livestreamer who earns money through streaming online. She also enjoys playing mobile games and sharing her gaming experiences with her viewers. Her passion for gaming and entertainment allows her to connect with others while turning her hobby into a source of income.</p>
         <div class="member-page-footer">
           <span>BS Information Technology</span><span>Opol Community College</span>
         </div>
@@ -1683,10 +2127,9 @@ section {
 
     <div class="section-header reveal">
       <span class="eyebrow">04 / SELECTED WORKS</span>
-      <h2 class="section-heading">Projects &amp; Achievements.</h2>
+      <h2 class="section-heading">LED (Light Emitting Diode)</h2>
       <p class="section-intro">
-        A selection of our academic projects, creative works,
-        and experiences throughout our journey.
+       LED Activity – One of our hands-on activities where we learned how to connect and control LEDs using basic electronic components and circuits.
       </p>
     </div>
 
@@ -1694,42 +2137,44 @@ section {
 
       <article class="project-card large reveal">
         <div class="project-image">
-          <img src="images/project1.jpg" alt="Academic project one">
+          <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/cb04a7f181f04cee8c3da6f34255543b.jpg" alt="Academic project one">
         </div>
         <div class="project-meta">
           <span>01 / FEATURED WORK</span>
-          <span>ACADEMIC PROJECT</span>
+          <span>ACADEMIC ACTIVITY</span>
         </div>
-        <h3>Academic Project One</h3>
+        <h3>IoT Activities</h3>
         <p>
-          Add a description of your completed academic project,
-          its purpose, and the skills you developed.
+        Throughout our IoT activities, we had the opportunity to explore and experience how technology works through hands-on learning. We tried different activities, such as making an LED blink and using a seven-segment display, which helped us understand the basics of electronics, programming, and connecting hardware components. At first, some tasks were challenging, but as we worked on them, we learned how each component functions and how small programs can control electronic devices. These activities were not only about following instructions but also about trying things ourselves, solving problems, and learning from our mistakes. Overall, our IoT experience helped us gain new knowledge, improve our technical skills, and become more familiar with how the Internet of Things is used in real-life applications.
         </p>
       </article>
 
       <div>
         <article class="project-card reveal">
-          <div class="project-image">
-            <img src="images/project2.jpg" alt="Research project">
-          </div>
+         
+<div class="project-image">
+    <video class="hover-video" src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/AQN9SBPOB1fn7tYLn_owqwRDTT8IylO5seusAn-h64LkBYq5poian-BfE24y9s6gO21K4BpmLuh9PFcXbOD_lwQj4DN7T4kyYDkl4yts_w-1.mp4" muted="" loop="" playsinline="" preload="metadata">
+    </video>
+</div>
+
           <div class="project-meta">
             <span>02 / RESEARCH</span>
-            <span>DOCUMENTATION</span>
+            <span>Design</span>
           </div>
-          <h3>Research &amp; Documentation</h3>
-          <p>Showcase your research, reports, and academic documentation.</p>
+          <h3>Blinking Activity</h3>
+          <p>One of our hands-on activities where we programmed an LED to turn on and off repeatedly, learning the basics of electronics and programming.</p>
         </article>
 
         <article class="project-card reveal">
           <div class="project-image">
-            <img src="images/project3.jpg" alt="Creative project">
+            <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/e18c641b1b8d84f26f146f7fce4e9cb1.jpg" alt="Creative project">
           </div>
           <div class="project-meta">
             <span>03 / CREATIVE WORK</span>
-            <span>DESIGN</span>
+            <span>Documentation</span>
           </div>
-          <h3>Creative Presentations</h3>
-          <p>Display your visual presentations, designs, and creative output.</p>
+          <h3>Documentation</h3>
+          <p>A collection of photos and records capturing our activities, experiences, and progress throughout our learning journey.</p>
         </article>
       </div>
 
@@ -1753,7 +2198,8 @@ section {
     <div class="case-study reveal">
 
       <div class="case-image">
-        <img src="images/capstone.jpg" alt="NSTP Integrated Management System">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/Picture1.png
+" alt="NSTP Integrated Management System">
       </div>
 
       <div class="case-content">
@@ -1890,19 +2336,19 @@ section {
       </div>
 
       <div class="gallery-item reveal">
-        <img src="images/gallery3.jpg" alt="Group activity three">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/a45c4ddb-6f3d-4032-b79e-a79addd58fb5.jpg" alt="Group activity three">
       </div>
 
       <div class="gallery-item reveal">
-        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/665c8aef-3608-48e1-85fa-21a3ab0ca562.jpg" alt="Group activity four">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/8b7c7da3-6bd4-4a78-80ec-f577aea17c99.jpg" alt="Group activity four">
       </div>
 
       <div class="gallery-item reveal">
-        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/hhaha.jpg" alt="Group activity five">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/0d31af5f-5325-4831-b243-b1aa528675e0.jpg" alt="Group activity five">
       </div>
 
       <div class="gallery-item reveal">
-        <img src="images/gallery6.jpg" alt="Group activity six">
+        <img src="http://localhost/wordpresslara/wordpresslara/wp-content/uploads/2026/11/7a64c0a2-e314-424c-9975-b52729056581.jpg" alt="Group activity six">
       </div>
 
     </div>
@@ -2040,4 +2486,94 @@ lightbox.addEventListener("click", event => {
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") closeLightbox();
 });
-</script>       
+document.querySelectorAll(".skills-reveal").forEach(container => {
+
+  const preview = container.querySelector(".skills-preview");
+  const viewButton = container.querySelector(".skills-view-btn");
+  const skillsPanel = container.querySelector(".skills-panel");
+
+  function revealButton() {
+    viewButton.hidden = false;
+    preview.setAttribute("aria-expanded", "true");
+  }
+
+  preview.addEventListener("click", revealButton);
+
+  preview.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      revealButton();
+    }
+  });
+
+  viewButton.addEventListener("click", () => {
+    skillsPanel.hidden = !skillsPanel.hidden;
+
+    viewButton.innerHTML = skillsPanel.hidden
+      ? '<i class="fa-solid fa-arrow-pointer"></i> Click Here to View Skills & Strengths'
+      : '<i class="fa-solid fa-eye-slash"></i> Hide Skills & Strengths';
+  });
+
+});
+document.querySelectorAll(".skills-image-gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightbox.classList.add("active");
+        document.body.classList.add("no-scroll");
+        lightboxClose.focus();
+    });
+})
+const aboutImage = document.querySelector(".about-image");
+const aboutPhoto = document.getElementById("aboutGroupPhoto");
+const personHotspots = document.querySelectorAll(".person-hotspot");
+
+personHotspots.forEach((button, index) => {
+
+    // Use the original group photo for each clickable section
+    button.style.backgroundImage = `url("${aboutPhoto.src}")`;
+    button.style.backgroundSize = "400% 100%";
+    button.style.backgroundPosition = `${index * (100 / 3)}% center`;
+    button.style.backgroundRepeat = "no-repeat";
+
+    button.addEventListener("click", () => {
+
+        const wasActive = button.classList.contains("active");
+
+        // Remove previous selection
+        personHotspots.forEach(person => {
+            person.classList.remove("active");
+            person.setAttribute("aria-pressed", "false");
+        });
+
+        // Toggle selected member
+        if (wasActive) {
+            aboutImage.classList.remove("has-selection");
+        } else {
+            aboutImage.classList.add("has-selection");
+            button.classList.add("active");
+            button.setAttribute("aria-pressed", "true");
+        }
+
+    });
+
+});
+
+/* PLAY VIDEO WHEN MOUSE HOVERS */
+
+document.querySelectorAll(".hover-video").forEach(video => {
+
+    video.addEventListener("mouseenter", () => {
+        video.play().catch(error => {
+            console.log("Video playback was prevented:", error);
+        });
+    });
+
+    video.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+    });
+
+});
+
+</script>
